@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="page-template">
+    <div class="action-menu-container">
+        <ul class="list-group">
+            {% if is_granted('TEACHER') %}
+                <li class="list-group-item active">Актуальное</li>
+                <li class="list-group-item">Классы</li>
+                <li class="list-group-item">Уроки</li>
+                <li class="list-group-item">Классное руководство</li>
+                <li class="list-group-item">Личная страница</li>
+            {% elseif is_granted('STUDENT') %}
+                <li class="list-group-item active">Предметы</li>
+                <li class="list-group-item">Оценки</li>
+                <li class="list-group-item">Домашнее задание</li>
+            {% elseif is_granted('PARENT') %}
+
+            {% elseif is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% endif %}
+        </ul>
+    </div>
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+</div>
+{% endblock %}

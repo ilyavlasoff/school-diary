@@ -17,11 +17,6 @@ class ChildParent
      */
     private $id;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     /**
      * @ORM\OneToOne(targetEntity="User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
@@ -32,4 +27,14 @@ class ChildParent
      * @ORM\ManyToMany(targetEntity="Student", mappedBy="parents")
      */
     private $children;
+
+    /**
+     * @ORM\Column(type="string", length=11)
+     */
+    private $phoneNumber;
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 }

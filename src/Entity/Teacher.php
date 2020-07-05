@@ -17,6 +17,7 @@ class Teacher
      */
     private $id;
 
+
     /**
      * @ORM\Column(type="string")
      */
@@ -32,6 +33,12 @@ class Teacher
      * @ORM\JoinColumn(name="staff_id", referencedColumnName="id", nullable=false)
      */
     private $user;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Grade", inversedBy="headTeacher")
+     * @ORM\JoinColumn(name="headTeacher", referencedColumnName="id")
+     */
+    private $managingClass;
 
     public function getId(): ?int
     {

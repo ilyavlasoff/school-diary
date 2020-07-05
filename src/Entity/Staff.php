@@ -28,6 +28,11 @@ class Staff
     private $passport;
 
     /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $jobTitle;
+
+    /**
      * @ORM\Column(type="time")
      */
     private $startWorkTime;

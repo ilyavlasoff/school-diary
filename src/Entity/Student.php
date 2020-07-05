@@ -48,6 +48,12 @@ class Student
      */
     private $parents;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Grade", inversedBy="students")
+     * @ORM\JoinColumn(name="gradeId", referencedColumnName="id")
+     */
+    private $grade;
+
     public function getId(): ?int
     {
         return $this->id;
